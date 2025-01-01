@@ -106,6 +106,8 @@ function updateDisplayArbitrary(arb0, arb1, playSound){
     theDay.innerText = arb0;
     hoursRemain.innerText = "- "+arb1+" -";
 
+    document.title = "Dawn of "+ arb0;
+
     resetAnim();
 
     if (playSound){
