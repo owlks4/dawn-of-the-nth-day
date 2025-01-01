@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+}
+
+html {
+    font-size:2em;
+    background-color: black;
+    color:white;
+    font-family: 'Arial Narrow Bold', sans-serif;    
+}
+
+body {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@font-face {
+    font-family: 'Arial Narrow Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Arial Narrow Bold'), url('ARIALNB.woff') format('woff');
+    }
+
+    @font-face {
+        font-family: 'Arial Narrow';
+        font-style: normal;
+        font-weight: normal;
+        src: local('Arial Narrow'), url('ARIALN.woff') format('woff');
+        }
+
+main {
+    padding-bottom:6em;
+    text-align: center;
+}
+
+h1 {
+    text-transform: capitalize;
+    cursor:pointer;
+}
+
+h2 {
+    font-size:1.25em;
+}
+
+h3 {
+    text-transform: capitalize; 
+    margin-top:0.5em;
+    font-size:1em;
+    font-family: 'Arial Narrow', sans-serif;
+}
+
+.fade-in {
+    animation: fade 2s;
+}
+
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
