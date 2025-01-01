@@ -9,6 +9,11 @@ html {
     font-family: 'Arial Narrow Bold', sans-serif;    
 }
 
+.new-day {
+    background-color:white;
+    color:black;
+}
+
 body {
     width:100vw;
     height:100vh;

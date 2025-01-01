@@ -90,6 +90,8 @@ function updateDisplay(date, playSound){
     theDay.innerHTML = dayString.replace(" and ","<br>and ");
     document.title = "Dawn of "+ dayString;
     
+    checkForNewDay(dayString);
+
     //theDay.innerText = "The "+getAdjectiveString1To999(2)+" Day";
     
     hoursRemain.innerText = "- "+ ((((isLeapYear ? 366 : 365) * 24) - (day * 24)) + 24) + " Hours Remain -";
@@ -104,7 +106,14 @@ function updateDisplay(date, playSound){
 function updateDisplayArbitrary(arb0, arb1, playSound){
 
     theDay.innerText = arb0;
-    hoursRemain.innerText = "- "+arb1+" -";
+    
+    if (arb1.trim().length == 0){
+        hoursRemain.innerText = ""; 
+    } else {
+        hoursRemain.innerText = "- "+arb1+" -";
+    }
+
+    checkForNewDay(theDay.innerText);
 
     document.title = "Dawn of "+ arb0;
 
@@ -112,6 +121,15 @@ function updateDisplayArbitrary(arb0, arb1, playSound){
 
     if (playSound){
        resetSound();
+    }
+}
+
+function checkForNewDay(text){
+    if (text.toLowerCase().includes(" new ")){
+        document.body.className = "new-day"
+        console.log("?")
+    } else {
+        document.body.className = "";
     }
 }
 
