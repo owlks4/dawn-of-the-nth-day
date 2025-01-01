@@ -7,13 +7,17 @@ const items = [dawnOf,theDay,hoursRemain];
 let customDate = document.getElementById("custom-date");
 customDate.valueAsNumber = Date.now();
 
+let arbitaryText0 = document.getElementById("arbitrary-0")
+let arbitaryText1 = document.getElementById("arbitrary-1")
+
 let audio = document.getElementById("dawn-sound");
 
 theDay.onclick = ()=>{
     updateDisplay(new Date(customDate.value), true);
 };
 
-document.getElementById("go").onclick = ()=>{updateDisplay(new Date(customDate.value), true)};
+document.getElementById("go-custom-date").onclick = ()=>{updateDisplay(new Date(customDate.value), true)};
+document.getElementById("go-custom-text").onclick = ()=>{updateDisplayArbitrary(arbitaryText0.value, arbitaryText1.value, true)};
 
 const stringAliases = {
     1:"one",
@@ -76,6 +80,13 @@ function updateDisplay(date, playSound){
     let day = getDayOfYearFromDate(date);
     
     let dayString = "the "+getAdjectiveString1To999(day)+" day";
+
+    if (isLeapYear && day == 366){
+        dayString = "the final day";
+    } else if (!isLeapYear && day == 365){
+        dayString = "the final day";
+    }
+
     theDay.innerHTML = dayString.replace(" and ","<br>and ");
     document.title = "Dawn of "+ dayString;
     
@@ -83,17 +94,37 @@ function updateDisplay(date, playSound){
     
     hoursRemain.innerText = "- "+ ((((isLeapYear ? 366 : 365) * 24) - (day * 24)) + 24) + " Hours Remain -";
     
+    resetAnim();
+
+    if (playSound){
+       resetSound();
+    }
+}
+
+function updateDisplayArbitrary(arb0, arb1, playSound){
+
+    theDay.innerText = arb0;
+    hoursRemain.innerText = "- "+arb1+" -";
+
+    resetAnim();
+
+    if (playSound){
+       resetSound();
+    }
+}
+
+function resetAnim(){
     items.forEach(item => {
         item.style.animation = 'none';
         item.offsetHeight;
         item.style.animation = null;
     });
+}
 
-    if (playSound){
-        audio.pause();
-        audio.currentTime = 0;
-        audio.play();
-    }
+function resetSound(){
+    audio.pause();
+    audio.currentTime = 0;
+    audio.play();
 }
 
 function getDaySuffix(day){

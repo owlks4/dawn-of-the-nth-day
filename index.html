@@ -7,6 +7,8 @@
 </head>
   <body>
     <main>
+      <div>
+        <br><br><br><br><br>
         <h2 id="dawn-of">
           Dawn of
         </h2>
@@ -16,11 +18,52 @@
         <h3 id="hours-remain" class="fade-in">
           - 72 Hours Remain -
         </h3>
-        <br>
-        <div>
-          <input type="date" id="custom-date">
-          <button type="button" id="go">Go</button>
-        </div>      
+        <br> <br> <br>
+      </div>
+        <table class="small-text" style="width:25em;margin:auto;">
+          <thead>
+            <th>
+              Custom date:
+            </th>
+            <th>
+              Custom text:
+            </th>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="width:50%;font-family:'Arial Narrow Bold';color:white;">
+                <div class="low-opacity">
+                  Count from
+                </div>
+                <div>
+                  <input type="date" id="custom-date">
+                </div>
+                <div class="low-opacity">
+                  to end of year
+                </div>
+                <div>
+                  <button type="button" style="margin-top:0.5em;" id="go-custom-date">Go</button>
+                </div>                
+              </td>
+              <td style="width:50%">
+                <div style="font-family:'Arial Narrow Bold';color:white;">
+                  <div class="low-opacity">
+                    Dawn of
+                  </div>
+                  <div>
+                    <input type="text" style="width:8em" id="arbitrary-0" value="the Final Day">
+                  </div>
+                  <div>
+                   - <input type="text "style="font-size:0.75em;width:7em;" id="arbitrary-1" value="24 Hours Remain"> -
+                  </div>
+                  <div>
+                    <button type="button" style="margin-top:0.5em;" id="go-custom-text">Go</button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>      
     </main>
     <audio id="dawn-sound" src="./src/dawn-of-the-first-day.mp3" preload="auto"></audio>
     <script src="./src/index.js"></script>
